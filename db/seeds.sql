@@ -1,11 +1,9 @@
-
-INSERT INTO department (dept_name)
+INSERT INTO departments (dept_name)
 VALUES  ('Front Office'),
         ('Back Office'),
         ('Side Office'),
         ('Help Desk'),
         ('Information Technology');
-
 INSERT INTO roles (title, salary)
 VALUES  ('Sales Director', 100000),
         ('Sales Team', 20000),
@@ -17,8 +15,7 @@ VALUES  ('Sales Director', 100000),
         ('Software Developer', 90000),
         ('Lead Software Developer', 110000),
         ('Software Architect', 165000);
-
-Insert INTO employee (first_name, last_name)
+Insert INTO employees (first_name, last_name)
 VALUES ('Bob', 'Evans'),
        ('Michael', 'Jordan'),
        ('Tiger', 'Woods'),
