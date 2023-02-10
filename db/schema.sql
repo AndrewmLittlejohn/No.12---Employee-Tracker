@@ -1,4 +1,4 @@
-DROP DATABASE employeemanagement_db;
+DROP DATABASE IF EXISTS employeemanagement_db;
 CREATE DATABASE employeemanagement_db;
 
 USE employeemanagement_db;
@@ -24,5 +24,5 @@ first_name VARCHAR(30) NOT NULL,
 last_name VARCHAR(30) NOT NULL,
 role_id INT,
 manager_id INT,
-FOREIGN KEY (role_id) REFERENCES employees(id)
+FOREIGN KEY (role_id) REFERENCES roles(id)
 );
