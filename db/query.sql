@@ -1,10 +1,14 @@
-SELECT
-  roles.title AS 'Job Title',
-  roles.department_id AS ID,
-  departments.dept_name AS Department,
-  departments.id AS 'Department ID'
-FROM roles 
-JOIN departments 
-ON roles.department_id = departments.id;
-
-
+-- SELECT
+--   employees.id AS Employee_ID,
+--   employees.first_name AS first_name,
+--   employees.last_name AS last_name,
+--   roles.title AS Job_Title,
+--   departments.dept_name AS Department,
+--   roles.salary AS Salary,
+--   employees.manager_id AS Manager
+  
+-- FROM employees 
+-- INNER JOIN roles 
+-- ON employees.role_id = roles.id
+-- INNER JOIN departments
+-- ON roles.department_id = departments.id;
