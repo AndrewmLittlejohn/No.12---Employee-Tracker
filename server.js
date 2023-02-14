@@ -84,6 +84,44 @@ const getRoles = () => {return new Promise((resolve, reject) => {
   // db.end();
 })};
 
+const getEmployees = () => {return new Promise((resolve, reject) => {
+  const employeesSQL = `SELECT
+employees.id AS Employee_ID,
+employees.first_name AS first_name,
+employees.last_name AS last_name,
+roles.title AS Job_Title,
+departments.dept_name AS Department,
+roles.salary AS Salary,
+employees.manager_id AS Manager
+FROM employees 
+INNER JOIN roles 
+ON employees.role_id = roles.id
+INNER JOIN departments
+ON roles.department_id = departments.id;`;
+  
+  db.connect();
+  db.query(employeesSQL, (error, results) => {
+    if (error) {
+      reject(error);
+    } else {
+        const choices = results.map(result => (
+          {
+            'Employee ID': `${result.Employee_ID}`, 
+            'First Name': `${result.first_name}`,
+            'Last Name': `${result.last_name}`,
+            'Job Title': `${result.Job_Title}`,
+            Department: `${result.Department}`,
+            Salary: `${result.Salary}`,
+            Manager: `${result.Manager}`
+          }
+        ));   
+          // resolve(choices);
+          console.table(choices);
+      }
+  });
+  // db.end();
+})};
+
  inquirer.prompt([
     {
       type: 'list',
@@ -102,6 +140,11 @@ const getRoles = () => {return new Promise((resolve, reject) => {
       case 'View Roles':
         getRoles().then(choices => {console.log(choices)})
         break;
+      case 'View Employees':
+        getEmployees().then(choices => {console.log(choices)})
+        break;
+      
+
     }; 
 
 
