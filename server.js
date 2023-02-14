@@ -47,15 +47,42 @@ const getDepartments = () => {return new Promise((resolve, reject) => {
     } else {
       const choices = results.map(result => (
         {
-        name: `Department: ${result.dept_name} | Department ID: ${result.id}`
+        Department: `${result.dept_name}`,
+        ID: `${result.id}`
       }));   
-        resolve(choices);
+        // resolve(choices);
         console.table(choices);
     }
   });
   // db.end();
 })};
 
+const getRoles = () => {return new Promise((resolve, reject) => {
+  db.connect();
+  db.query(`SELECT
+    roles.title AS 'Job_Title',
+    roles.id AS 'Role_ID',
+    departments.dept_name AS Department,
+    roles.salary AS Salary
+    FROM roles 
+    JOIN departments 
+    ON roles.department_id = departments.id;`, (error, results) => {
+    if (error) {
+      reject(error);
+    } else {
+      const choices = results.map(result => (
+        {
+          'Job Title': `${result.Job_Title}`,
+          'Role ID': `${result.Role_ID}`,
+          Department: `${result.Department}`,
+          Salary: `${result.Salary}`
+        }));   
+        // resolve(choices);
+        console.table(choices);
+    }
+  });
+  // db.end();
+})};
 
  inquirer.prompt([
     {
@@ -70,8 +97,11 @@ const getDepartments = () => {return new Promise((resolve, reject) => {
 
     switch(responses.initialChoice) {
       case 'View Departments':
-       getDepartments().then(choices => {console.log(choices)})
-       break;
+        getDepartments().then(choices => {console.log(choices)})
+        break;
+      case 'View Roles':
+        getRoles().then(choices => {console.log(choices)})
+        break;
     }; 
 
 
