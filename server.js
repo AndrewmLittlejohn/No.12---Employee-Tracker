@@ -225,7 +225,7 @@ const answers = await inquirer.prompt([
         }
       },
       {
-        type: 'list',
+        type: 'rwlist',
         name: 'RoleDept',
         message: 'Please select the roles department',
         choices: ['Front Office', 'Back Office', 'Information Technology'],
@@ -297,8 +297,6 @@ app.use((req, res) => {
 app.listen(PORT, () => {
   // console.log(`Server running on port ${PORT}`);
 });
-
-
 
 
 
