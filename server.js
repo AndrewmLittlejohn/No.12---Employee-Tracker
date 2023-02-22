@@ -49,7 +49,6 @@ const getDepartments = () => {return new Promise((resolve, reject) => {
       }));   
         // resolve(choices);
         console.table(choices);
-        ui.log.write('The application will exit in just over 2 seconds, please use npm i;npm start to return to the main menu')
         setTimeout(() => {exit();}, 2050);
     }
   });
@@ -79,7 +78,6 @@ const getRoles = () => {return new Promise((resolve, reject) => {
         }));   
         // resolve(choices);
         console.table(choices);
-        ui.log.write('The application will exit in just over 2 seconds, please use npm i;npm start to return to the main menu')
         setTimeout(() => {exit();}, 2050);
     }
   });
@@ -119,7 +117,6 @@ ON roles.department_id = departments.id;`;
         ));   
           // resolve(choices);
           console.table(choices);
-          ui.log.write('The application will exit in just over 2 seconds, please use npm i;npm start to return to the main menu')
           setTimeout(() => {exit();}, 2050);
       }
   });
@@ -156,7 +153,6 @@ const addDepartment = () => {return new Promise((resolve, reject) =>{
     });
       })
       insertDept()
-      ui.log.write('The application will exit in just over 2 seconds, please use npm i;npm start to return to the main menu')
       setTimeout(() => {exit();}, 2050);
       })
 })};
@@ -226,7 +222,6 @@ const addRole = () => {return new Promise((resolve, reject) =>{
     });
       })
       insertRole()
-      // ui.log.write('The application will exit in just over 2 seconds, please use npm i;npm start to return to the main menu')
       setTimeout(() => {exit();}, 2050);
       })
 })};
@@ -342,7 +337,6 @@ const addEmployee = () => {return new Promise((resolve, reject) =>{
     });
       })
       insertEmployee()
-      ui.log.write('The application will exit in just over 2 seconds, please use npm i;npm start to return to the main menu')
       setTimeout(() => {exit();}, 2050);
       })
 })};
@@ -417,7 +411,6 @@ const editRole = () => {return new Promise((resolve, reject) =>{
     });
       })
       editRole1();
-      ui.log.write('The application will exit in just over 2 seconds, please use npm i;npm start to return to the main menu')
       setTimeout(() => {exit();}, 2050);
       })
 })};
