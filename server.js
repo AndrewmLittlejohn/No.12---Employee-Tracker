@@ -86,18 +86,19 @@ const getRoles = () => {return new Promise((resolve, reject) => {
 
 const getEmployees = () => {return new Promise((resolve, reject) => {
   const employeesSQL = `SELECT
-employees.id AS Employee_ID,
-employees.first_name AS first_name,
-employees.last_name AS last_name,
-roles.title AS Job_Title,
-departments.dept_name AS Department,
-roles.salary AS Salary,
-employees.manager_id AS Manager
-FROM employees 
-INNER JOIN roles 
-ON employees.role_id = roles.id
-INNER JOIN departments
-ON roles.department_id = departments.id;`;
+  employees.id AS Employee_ID,
+  employees.first_name AS first_name,
+  employees.last_name AS last_name,
+  roles.title AS Job_Title,
+  departments.dept_name AS Department,
+  roles.salary AS Salary,
+  CONCAT(manager.first_name, ' ',manager.last_name) AS Manager
+  FROM employees 
+  INNER JOIN roles 
+  ON employees.role_id = roles.id
+  INNER JOIN departments
+  ON roles.department_id = departments.id
+  LEFT JOIN employees manager ON employees.manager_id = manager.id;`;
   
   db.connect();
   db.query(employeesSQL, (error, results) => {
